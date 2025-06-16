@@ -1,0 +1,20 @@
+# Entorno virtual
+venv/
+__pycache__/
+
+# Base de datos local
+wallet.db
+
+# Archivos Python compilados
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos del sistema
+.DS_Store
+*.swp
+*.swo
+
+# Archivos de logs
+*.log
+
