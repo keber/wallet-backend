@@ -1,5 +1,6 @@
 # main.py — API FastAPI para wallet digital
 from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
 from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
@@ -55,6 +56,14 @@ class SendMoneyData(BaseModel):
     note: str = ""
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['https://wallet.keber.cl'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
 
 def get_db():
     db = SessionLocal()
